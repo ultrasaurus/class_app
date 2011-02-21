@@ -4,6 +4,6 @@ describe "the homepage" do
   it "says welcome" do
     visit '/' 
     save_and_open_page
-    page.should have_content("Welcome to class") 
+    page.status_code.should == 200
   end
 end
