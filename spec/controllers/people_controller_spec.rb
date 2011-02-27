@@ -7,7 +7,7 @@ describe PeopleController do
     @marie = Person.create! :first_name => "Marie", :last_name => "Curie"
     @lise = Person.create! :first_name => "Lise", :last_name => "Meitner"   
   end
-#START:create_people
+#END:create_people
 
   describe "GET index" do
     it "renders" do
