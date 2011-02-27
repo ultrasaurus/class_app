@@ -2,8 +2,8 @@
 # START:two
 require 'spec_helper'
 
-describe PeopleController do
-  describe "GET index" do
+describe PeopleController do  #<label id="code.people_controller_context"/>
+  describe "GET index" do #<label id="code.people_index_context"/>
     it "renders" do
       get :index        #<label id="code.get_index"/>
       response.should render_template(:index) #<label id="code.should_render"/>
