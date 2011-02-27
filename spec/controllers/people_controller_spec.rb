@@ -11,8 +11,8 @@ describe PeopleController do
 
   describe "GET index" do
     it "renders" do
-      get :index        #<label id="code.get_index"/>
-      response.should render_template(:index) #<label id="code.should_render"/>
+      get :index       
+      response.should render_template(:index) 
     end
 
 #START:setup
