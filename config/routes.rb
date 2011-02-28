@@ -1,3 +1,4 @@
 ClassApp::Application.routes.draw do
-	match "people" => "people#index"  
+	get "people" => "people#index"  
+	post "people" => "people#create"  
 end
