@@ -20,6 +20,15 @@ describe PeopleController do
       assigns[:people].should == [@emmy, @marie, @lise]
     end
   end
+
+# START: post_create
+  describe "POST create" do
+    it "redirects" do
+      post :create, :person => {:first_name => "Barbara", :last_name => "Liskov"}      
+      response.should redirect
+    end
+  end
+# END: post_create
 end
 
 
