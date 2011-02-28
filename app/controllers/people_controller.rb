@@ -4,5 +4,7 @@ class PeopleController < ApplicationController
   end
 
   def create
+    redirect_to people_path
   end
+
 end
