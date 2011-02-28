@@ -25,7 +25,7 @@ describe PeopleController do
   describe "POST create" do
     it "redirects" do
       post :create, :person => {:first_name => "Barbara", :last_name => "Liskov"}      
-      response.should redirect
+      response.should redirect_to people_path
     end
   end
 # END: post_create
