@@ -23,9 +23,16 @@ describe PeopleController do
 
 # START: post_create
   describe "POST create" do
-    it "redirects" do
+    before do
       post :create, :person => {:first_name => "Barbara", :last_name => "Liskov"}      
+    end
+
+    it "redirects" do
       response.should redirect_to people_path
+    end
+
+    it "creates a person record" do
+      Person.where(:first_name => "Barbara", :last_name => "Liskov").should_not be_empty
     end
   end
 # END: post_create
