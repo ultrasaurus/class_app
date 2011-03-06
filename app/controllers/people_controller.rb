@@ -4,6 +4,7 @@ class PeopleController < ApplicationController
   end
 
   def create
+    Person.create(params[:person])
     redirect_to people_path
   end
 
