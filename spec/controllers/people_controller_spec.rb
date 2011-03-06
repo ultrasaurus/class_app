@@ -23,19 +23,33 @@ describe PeopleController do
 
 # START: post_create
   describe "POST create" do
-    before do
-      post :create, :person => {:first_name => "Barbara", :last_name => "Liskov"}      
-    end
+    describe "with valid data" do
+      before do
+        post :create, :person => {:first_name => "Barbara", :last_name => "Liskov"}      
+      end
 
-    it "redirects" do
-      response.should redirect_to people_path
-    end
+      it "redirects" do
+        response.should redirect_to people_path
+      end
 
-    it "creates a person record" do
-      Person.where(:first_name => "Barbara", :last_name => "Liskov").should_not be_empty
+      it "creates a person record" do
+        Person.where(:first_name => "Barbara", :last_name => "Liskov").should_not be_empty
+      end
     end
   end
-# END: post_create
+  describe "with invalid data" do
+    before do
+      @total_people = Person.count
+      post :create, :person => {:first_name => "Barbara"}         
+    end
+    it "does not create a person" do
+      Person.count.should == @total_people
+    end
+    it "should render new template" do
+      response.should render_template(:new)
+    end
+  end
+  # END: post_create
 end
 
 
